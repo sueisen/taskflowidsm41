@@ -12,8 +12,18 @@ def list_tasks(tasks):
 
 # Alumno 5
 def complete_task(tasks, task_id):
-    pass
+    if not str(task_id).isdigit():
+        show_error("ID invalido o no existe")
+        return tasks
 
+    for task in tasks:
+        if str(task["id"]) == str(task_id):
+            task["state"] = "✓"
+            show_success(f"Tarea {task_id} Completada exitosamente")
+            return task
+    
+    show_error("Tarea no encontrada")
+    return tasks
 
 # Alumno 6
 def delete_task(tasks, task_id):
