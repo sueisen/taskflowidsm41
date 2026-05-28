@@ -1,14 +1,18 @@
+# Alumno 7
 def validate_task_name(name):
-    return name is not None and name.strip() != ""
+    pass
 
 
+# Alumno 7
 def validate_id(task_id, tasks):
-    return any(str(t["id"]) == str(task_id) for t in tasks)
+    pass
 
 
+# Alumno 8
 def show_error(msg):
     print(f"[ERROR] {msg}")
 
 
+# Alumno 8
 def show_success(msg):
     print(f"[OK] {msg}")
