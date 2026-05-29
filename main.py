@@ -4,12 +4,17 @@ from storage import load_tasks, save_tasks
 tasks = load_tasks()
 
 def menu():
-    print("\n===== TASKFLOW DEVOPS =====")
-    print("1. Agregar tarea")
-    print("2. Listar tareas")
-    print("3. Completar tarea")
-    print("4. Eliminar tarea")
-    print("0. Salir")
+    print("╔═══════════════════════════╗")
+    print("║----- TASKFLOW DEVOPS -----║")
+    print("╚═══════════════════════════╝")
+    print("")
+    print("[1] Agregar tarea")
+    print("[2] Listar tareas")
+    print("[3] Completar tarea")
+    print("[4] Eliminar tarea")
+    print("")
+    print("[0] Salir")
+    print("____________________________")
 
 def main():
     global tasks
@@ -44,18 +49,25 @@ def main():
             print("Opción inválida")
 
 if __name__ == "__main__":
-    main()from tasks import add_task, list_tasks, complete_task, delete_task
+    main()
+    
+from tasks import add_task, list_tasks, complete_task, delete_task
 from storage import load_tasks, save_tasks
 
 tasks = load_tasks()
 
 def menu():
-    print("\n===== TASKFLOW DEVOPS =====")
-    print("1. Agregar tarea")
-    print("2. Listar tareas")
-    print("3. Completar tarea")
-    print("4. Eliminar tarea")
-    print("0. Salir")
+    print("╔═══════════════════════════╗")
+    print("║----- TASKFLOW DEVOPS -----║")
+    print("╚═══════════════════════════╝")
+    print("")
+    print("[1] Agregar tarea")
+    print("[2] Listar tareas")
+    print("[3] Completar tarea")
+    print("[4] Eliminar tarea")
+    print("")
+    print("[0] Salir")
+    print("____________________________")
 
 def main():
     global tasks
