@@ -8,7 +8,7 @@ ESTADO_PENDIENTE = "pendiente"
 ESTADO_COMPLETADA = "completada"
 
 
-def crear_tarea(task_id, nombre):
+def crear_modelo_tarea(task_id, nombre):
     return {
         "id": task_id,
         "nombre": nombre,
