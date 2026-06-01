@@ -1,7 +1,5 @@
 from utils import validate_task_name, validate_id, show_error, show_success
 
-#
-
 # Alumno 2 - Brando
 # Modelo de datos para almacenar las tareas
 
@@ -19,6 +17,7 @@ def crear_modelo_tarea(task_id, nombre):
 
 # Alumno 3
 def add_task(tasks, name):
+
     # validacion
     resultado_validacion = validate_task_name(name)
     
@@ -76,6 +75,7 @@ def add_task(tasks, name):
     else:
         #en caso de que no se agregue correctamente se muestra un error
         show_error("Error de consistencia: La nueva entrada no se pudo guardar en la lista.")
+        
 
     return tasks
 
