@@ -44,6 +44,20 @@ def list_tasks(tasks):
         status = "✓" if task["completed"] else "✗"
         print(f" {status} [{task['id']}] {task['name']}")
 
+    print("\n=== MIS TAREAS ===")
+    
+    for task in tasks:
+        if task.get("completed", False):
+            status = "Completada"  
+        else: 
+            status = "Pendiente" 
+        
+        task_id = task.get("id", "N/A")
+        task_name = task.get("name", "Sin nombre")
+        
+        print(f"{task_id} - {task_name} ({status})")
+        
+    print("=" * 18)
 
 # Alumno 5
 def complete_task(tasks, task_id):
