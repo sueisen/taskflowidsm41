@@ -5,12 +5,17 @@ from utils import show_error
 tasks = load_tasks()
 
 def menu():
-    print("\n===== TASKFLOW DEVOPS =====")
-    print("1. Agregar tarea")
-    print("2. Listar tareas")
-    print("3. Completar tarea")
-    print("4. Eliminar tarea")
-    print("0. Salir")
+    print("╔═══════════════════════════╗")
+    print("║----- TASKFLOW DEVOPS -----║")
+    print("╚═══════════════════════════╝")
+    print("")
+    print("[1] Agregar tarea")
+    print("[2] Listar tareas")
+    print("[3] Completar tarea")
+    print("[4] Eliminar tarea")
+    print("")
+    print("[0] Salir")
+    print("____________________________")
 
 def main():
     global tasks
