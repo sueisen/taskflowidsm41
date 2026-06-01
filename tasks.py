@@ -2,8 +2,10 @@ from utils import validate_task_name, validate_id, show_error, show_success
 
 # Alumno 3
 def add_task(tasks, name):
-    if not validate_task_name(name):
-        show_error("Nombre de tarea inválido.")
+    valid, msg = validate_task_name(name)
+
+    if not valid:
+        show_error(msg)
         return tasks
 
     new_id = str(len(tasks) + 1)
@@ -12,6 +14,7 @@ def add_task(tasks, name):
         "name": name,
         "completed": False
     }
+
     tasks.append(new_task)
     show_success("Tarea agregada exitosamente.")
     return tasks
