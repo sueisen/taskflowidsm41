@@ -1,11 +1,21 @@
+
 # Alumno 7
 def validate_task_name(name):
-    pass
-
-
+    if not isinstance(name, str):
+        return False, "El nombre de la tarea debe ser una cadena de texto."
+    if len(name.strip()) == 0:
+        return False, "El nombre de la tarea no puede estar vacío."
+    return True
 # Alumno 7
 def validate_id(task_id, tasks):
-    pass
+    if not isinstance(task_id, str):
+        return False, "El ID de la tarea debe ser una cadena de texto."
+    if not task_id.isdigit():
+        return False, "El ID de la tarea debe ser un número."
+    for task in tasks:
+        if task["id"] == task_id:
+            return True
+    return False, "Tarea no encontrada."
 
 
 # Alumno 8
