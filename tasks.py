@@ -1,6 +1,5 @@
 from utils import validate_task_name, validate_id, show_error, show_success
 
-
 # Alumno 2 - Brando
 # Modelo de datos para almacenar las tareas
 
@@ -18,18 +17,66 @@ def crear_modelo_tarea(task_id, nombre):
 
 # Alumno 3
 def add_task(tasks, name):
-    if not validate_task_name(name):
+
+    # validacion
+    resultado_validacion = validate_task_name(name)
+    
+    # si validacion falla mostrar un error
+    if isinstance(resultado_validacion, tuple):
+        valido = resultado_validacion[0]
+        mensaje_error = resultado_validacion[1]
+        if not valido:
+            show_error(mensaje_error)
+            return tasks
+            
+    # si validacion falla mostrar un error
+    elif resultado_validacion == False:
         show_error("Nombre de tarea inválido.")
         return tasks
 
-    new_id = str(len(tasks) + 1)
+    #asignacion de id empezando la lista por 1
+    id_mas_alto = 0
+    
+    # obtencion de id mas alto para asignar el siguient id 
+    for tarea in tasks:
+        id_actual_str = tarea["id"]
+        # verificacion de id valida para convertir a entero
+        if id_actual_str.isdigit():
+            id_actual_int = int(id_actual_str)
+            if id_actual_int > id_mas_alto:
+                id_mas_alto = id_actual_int
+                
+    # se asigna el nuevo id mas alto
+    nuevo_id_int = id_mas_alto + 1
+    new_id = str(nuevo_id_int)
+
+
+    nombre_limpio = name.strip()
+    
     new_task = {
         "id": new_id,
-        "name": name,
+        "name": nombre_limpio,
         "completed": False
     }
+
+    # Guardamos cuántas tareas había antes de agregar la nueva
+    longitud_inicial = len(tasks)
+    
+    #se agrega a la lista la nueva tarea
     tasks.append(new_task)
-    show_success("Tarea agregada exitosamente.")
+
+
+    longitud_final = len(tasks)
+    ultima_tarea = tasks[-1]
+    
+    # verifica si la lista realmente ha crecido en 1 si la respuesta es que si manda un mensaje de cnfirmacion
+    if longitud_final == longitud_inicial + 1 and ultima_tarea["id"] == new_id:
+        show_success(f"Tarea '{nombre_limpio}' guardada y registrada correctamente con el ID: {new_id}.")
+    else:
+        #en caso de que no se agregue correctamente se muestra un error
+        show_error("Error de consistencia: La nueva entrada no se pudo guardar en la lista.")
+        
+
     return tasks
 
 

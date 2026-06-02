@@ -1,4 +1,4 @@
-from utils import show_error
+
 # Alumno 7
 def validate_task_name(name):
     if not isinstance(name, str):
@@ -6,9 +6,6 @@ def validate_task_name(name):
     if len(name.strip()) == 0:
         return False, "El nombre de la tarea no puede estar vacío."
     return True
-
-
-
 # Alumno 7
 def validate_id(task_id, tasks):
     if not isinstance(task_id, str):
