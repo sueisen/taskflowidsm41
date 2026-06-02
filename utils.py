@@ -3,18 +3,18 @@
 def validate_task_name(name):
     if not isinstance(name, str):
         return False, "El nombre de la tarea debe ser una cadena de texto."
-    if len(name.strip()) == 0:
+    if not name.strip():
         return False, "El nombre de la tarea no puede estar vacío."
-    return True
+    return True, ""
 # Alumno 7
 def validate_id(task_id, tasks):
     if not isinstance(task_id, str):
-        return False, "El ID de la tarea debe ser una cadena de texto."
+        return False, "El ID debe ser texto."
     if not task_id.isdigit():
-        return False, "El ID de la tarea debe ser un número."
+        return False, "El ID debe ser numérico."
     for task in tasks:
         if task["id"] == task_id:
-            return True
+            return True, ""
     return False, "Tarea no encontrada."
 
 
