@@ -108,16 +108,25 @@ def list_tasks(tasks):
 
 # Alumno 5
 def complete_task(tasks, task_id):
-    if validate_id(str(task_id), tasks) is not True:
+    if not validate_id(task_id):
         show_error("ID de tarea inválido.")
         return tasks
 
     for task in tasks:
-        if str(task["id"]) == str(task_id):
-            task["completed"] = True 
-            show_success(f"Tarea {task_id} Completada exitosamente")
+        if task["id"] == task_id:
+            task["completed"] = True
+            show_success("Tarea completada exitosamente.")
             return tasks
 
+    show_error("Tarea no encontrada.")
+    return tasks
+
+    for task in tasks:
+        if str(task["id"]) == str(task_id):
+            task["state"] = "✓"
+            show_success(f"Tarea {task_id} Completada exitosamente")
+            return task
+    
     show_error("Tarea no encontrada")
     return tasks
 
