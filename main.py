@@ -48,10 +48,7 @@ def main():
 
         elif option == "4":
             task_id = input("ID de tarea: ")
-            try:
-                tasks = delete_task(tasks, task_id)
-            except Exception as e:
-                show_error("Error al eliminar la tarea: " + str(e))
+            tasks = delete_task(tasks, task_id)
             save_tasks(tasks)
 
         elif option == "0":

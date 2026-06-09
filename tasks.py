@@ -132,15 +132,11 @@ def complete_task(tasks, task_id):
 
 # Alumno 6
 def delete_task(tasks, task_id):
-    if not validate_id(task_id):
-        show_error("ID de tarea inválido.")
-        return tasks
-
-    for i, task in enumerate(tasks):
-        if task["id"] == task_id:
-            tasks.pop(i)
-            show_success("Tarea eliminada exitosamente.")
+    for t in tasks:
+        if str(t["id"]) == str(task_id):
+            tasks.remove(t)
+            show_success("Tarea eliminada")
             return tasks
 
-    show_error("Tarea no encontrada.")
+    show_error("Tarea no encontrada")
     return tasks
